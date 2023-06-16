@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição Olimpiada</title>
+</head>
+
+<body>
+    <h1>Formulário de inscrição Olimpíada</h1>
+    <form action="https://formsubmit.co/giovanna.laura@aluno.ifsp.edu.br" method="POST" onsubmit="coletaDados(event)">
+        <fieldset>
+            <legend>Dados pessoais</legend>
+            <label for="escola">Escola</label>
+            <input type="text" name="escola" id="escola" required> <!--required = avisa que o campo não foi preenchido-->
+            <label for="endereco">Endereço</label>
+            <input type="text" name="endereco" id="endereco" required>
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" required>
+        </fieldset>
+        <fieldset>
+            <legend>Modalidade</legend>
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria" required>
+                <option value="">--Escolha uma opção--</option>
+                <option value="professor">Professor</option>
+                <option value="aluno">Aluno</option>
+            </select>
+            <label for="pagante">Pagante</label>
+            <input type="checkbox" name="pagante" id="pagante">
+        </fieldset>
+        <fieldset>
+            <legend>Infos Adicionais</legend>
+            <label for="motivacao">Motivação</label>
+            <textarea name="motivacao" id="motivacao" cols="100%" rows="10"></textarea>
+        </fieldset>
+        <button type="submit">Enviar dados</button>
+        <!-- Reset limpa os campos do formulário -->
+        <button type="reset">Limpar campos</button>
+    </form>
+
+    <script>
+        function coletaDados(event){
+            // Evita que o form atualize a página.
+            // event.preventDefault();
+            const formulario = event.target;
+            //Apresenta os dados digitados
+            console.log(formulario.elements);
+            alert(`Dados do formulário: \n
+            Escola: ${formulario.elements.escola.value}\n
+            Endereço: ${formulario.elements.endereco.value}\n
+            E-mail: ${formulario.elements.email.value}\n
+            Categoria: ${formulario.elements.categoria.value}\n
+            Pagante: ${formulario.elements.pagante.checked}\n
+            Motivação: ${formulario.elements.motivacao.value}\n
+            `);
+        }     
+    </script>
+</body>
+
+</html>
